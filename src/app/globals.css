@@ -6,3 +6,23 @@ p,
 span {
   color: #fff;
 }
+body {
+  background-color: #1a1a27;
+}
+
+/* custom search input */
+.custom-input .ant-input::placeholder {
+  color: #465270; /* Default placeholder color */
+}
+.custom-input:hover .ant-input::placeholder {
+  color: gray; /* Color when hovering */
+  opacity: 1; /* Ensure opacity is set for visibility */
+}
+
+/* custom icon inside search input */
+.custom-icon {
+  color: gray; /* Default color */
+}
+.custom-icon:hover {
+  color: gray; /* Color on hover */
+}
