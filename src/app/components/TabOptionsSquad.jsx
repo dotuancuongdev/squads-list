@@ -31,6 +31,7 @@ const TabOptionsSquad = () => (
     onChange={onChange}
     className="text-white"
     size="large"
+    color="white"
   />
 );
 export default TabOptionsSquad;

@@ -18,7 +18,11 @@ const SortSquads = () => (
     options={sortOptions}
     placeholder="Sort by"
     size="large"
-    className="w-full"
+    className="w-full bg-[#1a1a27]"
+    rootClassName="!bg-[#1a1a27] !text-red-500"
+    popupClassName="!bg-[#333347] !text-red-500"
+    dropdownStyle={{ color: "red" }}
+    style={{ color: "red" }}
   />
 
   // <select

@@ -1,4 +1,8 @@
-@tailwind base;
+@layer tailwind-base, antd;
+
+@layer tailwind-base {
+  @tailwind base;
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -25,4 +29,30 @@ body {
 }
 .custom-icon:hover {
   color: gray; /* Color on hover */
+}
+
+/* custom select */
+.custom-select .ant-select-selector {
+  background-color: #1a1a27; /* Change background color */
+}
+
+.ant-input-affix-wrapper:hover {
+  background-color: #1a1a27;
+}
+
+.ant-input-affix-wrapper:focus {
+  background-color: #1a1a27;
+}
+
+.ant-input-affix-wrapper:focus-within {
+  background-color: #1a1a27;
+}
+
+.ant-select-selector {
+  background-color: #1a1a27 !important;
+  color: #bcbbca !important;
+}
+
+.ant-select-selector:required:invalid {
+  color: red !important;
 }

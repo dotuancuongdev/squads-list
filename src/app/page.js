@@ -1,17 +1,11 @@
-import Image from "next/image";
 import { Space_Grotesk } from "next/font/google";
-import { Input } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
-import SelectedOptions from "./components/SelectOptionsSquad";
-import SortSquads from "./components/SortSquads";
-import CardMember from "./components/CardMember";
-import TabOptionsSquad from "./components/TabOptionsSquad";
+import ListSquads from "./components/ListSquads";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="px-4 lg:px-16">
       <div>
@@ -42,51 +36,11 @@ export default function Home() {
             <p className="py-2 px-5">{`Create squad >`}</p>
           </button>
         </div>
-      </div>
 
-      {/* input in max sceen 767px*/}
-      <div className="md:hidden">
-        <Input
-          size="large"
-          placeholder="Search for squad"
-          prefix={<SearchOutlined className="custom-icon" />}
-          className="bg-[#1a1a27] custom-input mt-10"
-        />
-        <div className="w-full flex mt-4 gap-3">
-          <SelectedOptions className="flex-1 custom-input " />
-          <SortSquads className="flex-1 custom-input" />
-        </div>
-      </div>
-
-      {/* input in min sceen 767px*/}
-
-      <div className="hidden md:flex gap-8 items-center mt-10">
-        <div className="flex-1">
-          <TabOptionsSquad className="w-full" />
-        </div>
-        <div className="flex-1 flex gap-4">
-          <Input
-            size="large"
-            placeholder="Search for squad"
-            prefix={<SearchOutlined className="custom-icon" />}
-            className="bg-[#1a1a27] custom-input  "
-          />
-          <SortSquads className="custom-input " />
-        </div>
-      </div>
-
-      {/* card list */}
-
-      <div className="mx-auto mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <CardMember />
-        <CardMember />
-        <CardMember />
-        <CardMember />
-        <CardMember />
-        <CardMember />
-        <CardMember />
-        <CardMember />
+        <ListSquads />
       </div>
     </div>
   );
-}
+};
+
+export default Home;
