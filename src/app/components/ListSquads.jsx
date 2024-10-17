@@ -67,11 +67,9 @@ const ListSquads = () => {
         rect?.right <=
           (window.innerWidth || document.documentElement.clientWidth);
 
-      console.log(isInViewport);
       if (isInViewport) {
         clearTimeout(isFetching.current);
         isFetching.current = setTimeout(() => {
-          console.log(1);
           setPageNumber((pageNumber) => {
             return pageNumber + 1;
           });
@@ -89,12 +87,12 @@ const ListSquads = () => {
         <Input
           size="large"
           placeholder="Search for squad"
-          prefix={<SearchOutlined className="custom-icon" />}
+          prefix={<SearchOutlined className="bg-[#1a1a27] " />}
           className="bg-[#1a1a27] text-[#BCBBCA] custom-input mt-10"
         />
         <div className="w-full flex mt-4 gap-3">
-          <SelectedOptions className="flex-1 custom-select " />
-          <SortSquads className="flex-1 custom-select" />
+          <SelectedOptions className="flex-1  " />
+          <SortSquads className="flex-1 " />
         </div>
       </div>
 

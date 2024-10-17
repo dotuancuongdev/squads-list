@@ -19,16 +19,16 @@ body {
   color: #465270; /* Default placeholder color */
 }
 .custom-input:hover .ant-input::placeholder {
-  color: gray; /* Color when hovering */
+  color: #465270; /* Color when hovering */
   opacity: 1; /* Ensure opacity is set for visibility */
 }
 
 /* custom icon inside search input */
 .custom-icon {
-  color: gray; /* Default color */
+  color: #465270; /* Default color */
 }
 .custom-icon:hover {
-  color: gray; /* Color on hover */
+  color: #465270; /* Color on hover */
 }
 
 /* custom select */
@@ -62,4 +62,15 @@ body {
 
 .ant-skeleton {
   border-radius: 10px;
+}
+
+.ant-select-selection-placeholder::after {
+  color: red;
+}
+
+.ant-tabs-tab-btn {
+  color: #465270;
+  font-size: "20px";
+  line-height: "28px";
+  font-weight: 600;
 }
