@@ -16,12 +16,10 @@ import SkeletonCard from "./SkeletonCard";
 
 const fetcher = (url) => axios.get(url).then((res) => res);
 
-const skeletons = [
-  <SkeletonCard />,
-  <SkeletonCard />,
-  <SkeletonCard />,
-  <SkeletonCard />,
-];
+const fillFourData = Array(4).fill(1);
+
+const skeletons = fillFourData.map((item, idx) => <SkeletonCard key={idx} />);
+console.log(skeletons);
 
 const ListSquads = () => {
   const [members, setMembers] = useState([]);
@@ -47,7 +45,7 @@ const ListSquads = () => {
       <>
         <div className="mx-auto my-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {members?.map((item, idx) => (
-            <CardMember item={item} idx={idx} key={item._id} />
+            <CardMember key={item._id} item={item} idx={idx} />
           ))}
         </div>
 

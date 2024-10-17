@@ -14,7 +14,7 @@ const SkeletonCard = () => {
         <Skeleton.Node
           active
           className="bg-[#303041]"
-          style={{ width: 250, borderRadius: 10 }}
+          style={{ width: 250, height: 80, borderRadius: 10 }}
         />
         <Skeleton.Input active size="small" className="bg-[#F0F0F0]" />
         <Skeleton.Button active size="default" className="bg-[#F0F0F0] w-1/5" />
