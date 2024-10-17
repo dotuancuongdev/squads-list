@@ -36,6 +36,9 @@ body {
   background-color: #1a1a27; /* Change background color */
 }
 
+.ant-input-affix-wrapper {
+  background-color: #1a1a27 !important;
+}
 .ant-input-affix-wrapper:hover {
   background-color: #1a1a27;
 }
@@ -55,4 +58,8 @@ body {
 
 .ant-select-selector:required:invalid {
   color: red !important;
+}
+
+.ant-skeleton {
+  border-radius: 10px;
 }

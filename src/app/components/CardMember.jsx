@@ -55,7 +55,7 @@ const CardMember = ({ item, idx }) => {
             width={16}
             height={16}
           />
-          <p className="text-xs font-normal">20 members</p>
+          <p className="text-xs font-normal">{item.stock} members</p>
         </div>
         <div className="flex justify-center mt-10">
           {idx % 2 === 0 ? (

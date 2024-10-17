@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Inter, Space_Grotesk } from "next/font/google";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +31,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.className}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
-        {children}
+        <AntdRegistry>{children}</AntdRegistry>
         <Footer />
       </body>
     </html>

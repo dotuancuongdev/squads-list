@@ -8,26 +8,82 @@ import SelectedOptions from "./SelectOptionsSquad";
 import SortSquads from "./SortSquads";
 import CardMember from "./CardMember";
 import TabOptionsSquad from "./TabOptionsSquad";
-import { Spin } from "antd";
-import { useState } from "react";
+import { Spin, Skeleton } from "antd";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import useSWR from "swr";
+import SkeletonCard from "./SkeletonCard";
 
-const pageSize = 16;
 const fetcher = (url) => axios.get(url).then((res) => res);
 
+const skeletons = [
+  <SkeletonCard />,
+  <SkeletonCard />,
+  <SkeletonCard />,
+  <SkeletonCard />,
+];
+
 const ListSquads = () => {
+  const [members, setMembers] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
 
   const { data, error, isLoading } = useSWR(
-    `https://appropriate-kristin-dotuancuongdev-f1cd16f6.koyeb.app/api/products/commerce?pageSize=${pageSize}&pageNumber=${pageNumber}`,
-    fetcher
+    `https://appropriate-kristin-dotuancuongdev-f1cd16f6.koyeb.app/api/products/commerce?pageSize=8&pageNumber=${pageNumber}`,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      onSuccess: (data) => {
+        setMembers((member) => {
+          return [...member, ...data?.data?.items];
+        });
+      },
+    }
   );
 
-  console.log(data);
+  const renderMembers = () => {
+    if (error) return "An error has occurred.";
 
-  if (error) return "An error has occurred.";
-  if (isLoading) return "Loading...";
+    return (
+      <>
+        <div className="mx-auto my-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {members?.map((item, idx) => (
+            <CardMember item={item} idx={idx} key={item._id} />
+          ))}
+        </div>
+
+        <div className="w-full flex justify-center my-10" ref={loadingIcon}>
+          <Spin size="large" />
+        </div>
+      </>
+    );
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const rect = loadingIcon.current?.getBoundingClientRect();
+      const isInViewport =
+        rect?.top >= 0 &&
+        rect?.left >= 0 &&
+        rect?.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect?.right <=
+          (window.innerWidth || document.documentElement.clientWidth);
+
+      console.log(isInViewport);
+      if (isInViewport) {
+        clearTimeout(isFetching.current);
+        isFetching.current = setTimeout(() => {
+          console.log(1);
+          setPageNumber((pageNumber) => {
+            return pageNumber + 1;
+          });
+        }, 500);
+      }
+    });
+  }, []);
+  const loadingIcon = useRef();
+  const isFetching = useRef();
+
   return (
     <>
       {/* input in max sceen 767px*/}
@@ -62,16 +118,15 @@ const ListSquads = () => {
       </div>
 
       {/* card list */}
-
-      <div className="mx-auto my-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {data?.data?.items?.map((item, idx) => (
-          <CardMember item={item} idx={idx} key={item._id} />
-        ))}
-      </div>
-
-      <div className="text-center my-10">
-        <Spin size="large" />
-      </div>
+      {members.length !== 0 ? (
+        <div>{renderMembers()}</div>
+      ) : (
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10">
+          {skeletons.map((item, idx) => (
+            <div key={idx}>{item}</div>
+          ))}
+        </div>
+      )}
     </>
   );
 };
