@@ -87,8 +87,8 @@ const ListSquads = () => {
         <Input
           size="large"
           placeholder="Search for squad"
-          prefix={<SearchOutlined className="bg-[#1a1a27] " />}
-          className="bg-[#1a1a27] text-[#BCBBCA] custom-input mt-10"
+          prefix={<SearchOutlined />}
+          className=" mt-10"
         />
         <div className="w-full flex mt-4 gap-3">
           <SelectedOptions className="flex-1  " />
@@ -106,10 +106,10 @@ const ListSquads = () => {
           <Input
             size="large"
             placeholder="Search for squad"
-            prefix={<SearchOutlined className="custom-icon" />}
-            className="bg-[#1a1a27] custom-input text-[#BCBBCA] "
+            prefix={<SearchOutlined />}
+            className=""
           />
-          <SortSquads className="text-[#BCBBCA] flex-initial" />
+          <SortSquads className=" flex-initial" />
         </div>
       </div>
 
