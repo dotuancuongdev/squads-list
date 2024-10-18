@@ -21,7 +21,7 @@ const SortSquads = () => (
     className="w-full bg-[#1a1a27]"
     rootClassName="!bg-[#1a1a27] !text-red-500"
     popupClassName="!bg-[#333347] !text-red-500"
-    dropdownStyle={{ color: "red" }}
+    dropdownStyle={{ color: "red", borderRadius: 4 }}
     style={{ color: "red" }}
   />
 

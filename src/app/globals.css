@@ -52,6 +52,7 @@ body {
 .ant-skeleton {
   border-radius: 10px;
 }
+
 /* custom tabs  */
 .ant-tabs-tab-btn {
   color: #465270;
@@ -68,7 +69,6 @@ body {
 .ant-tabs .ant-tabs-tab-btn {
   transition: all 0s !important;
 }
-
 .custom-tab .ant-tabs-nav::before {
   display: none;
 }
