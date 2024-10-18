@@ -174,7 +174,7 @@ const ListSquads = () => {
             className=""
           /> */}
 
-          <div className="flex items-center gap-[10px] border-[1px] border-solid border-[#465270] rounded py-[10px] pl-3 flex-1">
+          <div className="flex items-center gap-[10px] border-[1px] border-solid border-[#465270] rounded py-[10px] pl-3 flex-[5]">
             <img
               src="https://res.cloudinary.com/dyk0mxfjz/image/upload/v1729159447/cy3zabm5vcqa7twuvyi1.svg"
               alt="search"
@@ -186,7 +186,7 @@ const ListSquads = () => {
               className="text-sm text-[#465270] bg-[#1a1a27] w-full"
             />
           </div>
-          <div className=" flex-1">
+          <div className=" flex-[3]">
             <SortSquads />
           </div>
         </div>
