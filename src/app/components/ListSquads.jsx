@@ -17,9 +17,29 @@ import SkeletonCard from "./SkeletonCard";
 const fetcher = (url) => axios.get(url).then((res) => res);
 
 const fillFourData = Array(4).fill(1);
-
 const skeletons = fillFourData.map((item, idx) => <SkeletonCard key={idx} />);
-console.log(skeletons);
+
+const squadOptions = [
+  {
+    value: "Public Squads",
+    label: "Public Squads",
+  },
+  {
+    value: "Private Squads",
+    label: "Private Squads",
+  },
+  {
+    value: "My Squads",
+    label: "My Squads",
+  },
+];
+
+const sortOptions = [
+  { value: "Recently added", label: "Recently added" },
+  { value: "Member: High to Low", label: "Member: High to Low" },
+  { value: "Member: Low to High", label: "Member: Low to High" },
+  { value: "Oldest", label: "Oldest" },
+];
 
 const ListSquads = () => {
   const [members, setMembers] = useState([]);
@@ -84,15 +104,59 @@ const ListSquads = () => {
     <>
       {/* input in max sceen 767px*/}
       <div className="md:hidden">
-        <Input
+        {/* <Input
           size="large"
           placeholder="Search for squad"
           prefix={<SearchOutlined />}
-          className=" mt-10"
-        />
-        <div className="w-full flex mt-4 gap-3">
+          className=""
+        /> */}
+        <div className="flex items-center gap-[10px] border-[1px] border-solid border-[#465270] rounded py-[10px] pl-3 mt-10">
+          <img
+            src="https://res.cloudinary.com/dyk0mxfjz/image/upload/v1729159447/cy3zabm5vcqa7twuvyi1.svg"
+            alt="search"
+            className="text-[#FAFAFD] w-[18px] h-[18px]"
+          />
+          <input
+            type="text"
+            placeholder="Search for squad"
+            className="text-sm text-[#465270] bg-[#1a1a27]"
+          />
+        </div>
+        <div className="w-full  mt-4 grid grid-cols-2 gap-3 ">
           <SelectedOptions className="flex-1  " />
           <SortSquads className="flex-1 " />
+
+          {/* <select
+            name="squads"
+            id="squads"
+            defaultValue=""
+            className="flex-1 bg-[#1a1a27] border-[1px] border-solid border-[#30303c] text-sm font-semibold text-[#FAFAFD] py-[10px] rounded-[4px] px-3"
+          >
+            <option value="" selected disabled className="text-[#465270] ">
+              Squads
+            </option>
+            {squadOptions.map((squad, idx) => (
+              <option key={idx} value={squad.value}>
+                {squad.label}
+              </option>
+            ))}
+          </select>
+
+          <select
+            name="squads"
+            id="squads"
+            defaultValue=""
+            className="flex-1 bg-[#1a1a27] border-[1px] border-solid border-[#30303c] text-sm font-semibold text-[#FAFAFD] py-[10px] rounded-[4px] px-3"
+          >
+            <option value="" selected disabled className="text-[#465270]">
+              Sort by
+            </option>
+            {sortOptions.map((op, idx) => (
+              <option key={idx} value={op.value}>
+                {op.label}
+              </option>
+            ))}
+          </select> */}
         </div>
       </div>
 
@@ -102,14 +166,29 @@ const ListSquads = () => {
         <div className="flex-1">
           <TabOptionsSquad className="w-full" />
         </div>
-        <div className="flex-1 flex gap-4">
-          <Input
+        <div className="flex-1 flex gap-4 items-center">
+          {/* <Input
             size="large"
             placeholder="Search for squad"
             prefix={<SearchOutlined />}
             className=""
-          />
-          <SortSquads className=" flex-initial" />
+          /> */}
+
+          <div className="flex items-center gap-[10px] border-[1px] border-solid border-[#465270] rounded py-[10px] pl-3 flex-1">
+            <img
+              src="https://res.cloudinary.com/dyk0mxfjz/image/upload/v1729159447/cy3zabm5vcqa7twuvyi1.svg"
+              alt="search"
+              className="text-[#FAFAFD] w-[18px] h-[18px]"
+            />
+            <input
+              type="text"
+              placeholder="Search for squad"
+              className="text-sm text-[#465270] bg-[#1a1a27] w-full"
+            />
+          </div>
+          <div className=" flex-1">
+            <SortSquads />
+          </div>
         </div>
       </div>
 

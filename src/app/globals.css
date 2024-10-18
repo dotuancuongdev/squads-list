@@ -52,14 +52,68 @@ body {
 .ant-skeleton {
   border-radius: 10px;
 }
-
+/* custom tabs  */
 .ant-tabs-tab-btn {
   color: #465270;
+  font-size: "50px" !important;
+  line-height: "28px" !important;
+  font-weight: 600 !important;
+}
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: white !important;
   font-size: "20px" !important;
   line-height: "28px" !important;
   font-weight: 600 !important;
 }
+.ant-tabs .ant-tabs-tab-btn {
+  transition: all 0s !important;
+}
 
-.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: white !important;
+.custom-tab .ant-tabs-nav::before {
+  display: none;
+}
+
+/* custom placeholder normal input */
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #465270;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #465270;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #465270;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #465270;
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #465270;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #465270;
+}
+
+/* remove input border when forcus */
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+/* change border select component */
+.ant-select-selector:hover,
+.ant-select-selector:focus-within {
+  border: 1px solid #465270 !important;
+}
+.ant-select-selector {
+  border-color: #465270 !important;
+  border-radius: 4px !important;
 }

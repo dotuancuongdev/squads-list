@@ -29,9 +29,9 @@ const TabOptionsSquad = () => (
     defaultActiveKey="1"
     items={items}
     onChange={onChange}
-    className="text-white"
     size="large"
     color="white"
+    className="custom-tab"
   />
 );
 export default TabOptionsSquad;
